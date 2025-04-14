@@ -1,7 +1,26 @@
 form{
     display: flex;
     flex-direction: column;
-    width:50%;
-    margin: auto;
-    position:absolute;
+    width:30%;
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    row-gap: 20px;
+}
+form div label{
+    position:relative;
+    width:30%;
+}
+input{
+    display: inline-block;
+    width: 50%;
+}
+label{
+    display: inline-block;
+}
+#submit{
+    width:30%;  
+    margin-left: auto;
+    margin-right: auto;
 }

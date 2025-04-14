@@ -16,24 +16,41 @@ function Book(title, author, pages, isRead){
     }
 
 }
-function addBookToLibrary(title, author, pages, isRead){
-    const b = new Book(title, author, pages, isRead);
+
+function libraryTr(b){//generates a row
+    const nRow = document.createElement("tr");
+    for(const properties in b){
+        if(properties != "id"&&typeof(b[properties]) != "function"){
+            const data = document.createElement("td");
+            const text = document.createTextNode(properties=="isRead"?(b["isRead"]?"read":"not read"):b[properties]);
+            if(properties=="isRead"){
+                let readButton = document.createElement("button");
+                readButton.appendChild(text);
+                readButton.setAttribute("id","isRead");
+            }else{
+                data.appendChild(text);
+            }
+            nRow.append(data);
+           
+        }
+        
+    }
+
+    return nRow;
+}
+function processBook(title, author, pages, isRead){//adds book to storage and updates display
+    //add 
+    const b = new Book(title, author, pages, isRead.toLowerCase() == "true");
+    /*
+    const deleteButton = document.createElement("button");
+    const text = document.createTextNode("delete");
+    deleteButton.appendChild(text);
+    */
+    libT.appendChild(libraryTr(b));
+    
     lib.push(b);
 }
-function displayBooks(){
-    for(const b of lib){
-        const nRow = document.createElement("tr");
-        for(const properties in b){
-            if(properties == "id" || typeof(b[properties]) == "function"){
-                continue;
-            }
-            const data = document.createElement("td");
-            data.appendChild(document.createTextNode(b[properties]));
-            nRow.appendChild(data);
-        }
-        libT.appendChild(nRow);
-    }
-}
-addBookToLibrary("ball", "joe", 232, true);
-displayBooks();
+
 libT.style.borderBlockStyle = "dotted";
+
+export {processBook}

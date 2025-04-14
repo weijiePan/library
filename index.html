@@ -8,16 +8,23 @@
 </head>
 <body>
     <form>
-        <input id = "title" name ="title" type="text">
-        <label for = "title" >title</label>
-        <input name ="author" type="text">
-        <label for = "title" >title</label>
-        <input name ="pages" type="text">
-        <label for = "title" >title</label>
-        <input name ="read" type="text">
-        <label for = "title" >title</label>
-        <input type="submit" id="submit">
-        <label for = "title" >title</label>
+        <div>
+            <label for="title">Title</label>
+            <input id="title">
+        </div>
+        <div>
+            <label for="author">Author</label>
+            <input id="author">
+        </div>
+        <div>
+            <label for="pages">Pages</label>
+            <input id="pages">
+        </div>
+        <div>
+            <label for="read">Read?</label>
+            <input id="read">
+        </div>
+        <button id="submit">update Display</button>
     </form>
     <table id="libT">
         <tr>
@@ -25,11 +32,12 @@
             <th>Author</th>
             <th>Pages</th>
             <th>Read</th>
+            <th>Delete</th>
         </tr>
-        <button>update Display</button>
+        
     </table>
     
 </body>
     <script type = "module" src="library.js"></script>
-    <script src="form.js"></script>
+    <script src="form.js" type="module"></script>
 </html>
