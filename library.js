@@ -24,17 +24,28 @@ function libraryTr(b){//generates a row
             const data = document.createElement("td");
             const text = document.createTextNode(properties=="isRead"?(b["isRead"]?"read":"not read"):b[properties]);
             if(properties=="isRead"){
+                let td =document.createElement("td");
                 let readButton = document.createElement("button");
                 readButton.appendChild(text);
                 readButton.setAttribute("id","isRead");
+                td.appendChild(readButton);
+                nRow.appendChild(td);
             }else{
                 data.appendChild(text);
+                nRow.append(data);
             }
-            nRow.append(data);
+            
            
         }
         
     }
+    let td = document.createElement("td");
+    let deleteButton = document.createElement("button");
+    let text = document.createTextNode("delete");
+    deleteButton.appendChild(text);
+    deleteButton.setAttribute("id","delete");
+    td.appendChild(deleteButton);
+    nRow.appendChild(td);
 
     return nRow;
 }
